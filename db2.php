@@ -1,23 +1,9 @@
 <?php 
 $rootpath=$_SERVER["DOCUMENT_ROOT"];
-require_once $rootpath."/project1/DBHandler/DatabaseConnection.php";
+require_once $rootpath."/project1/DBHandler/DBStudentDetails.php";
 
-$dbo=new DataCon();
+$dbo=new DBStudentDetails();
 
-
-try{
-    echo("<br>");
-    echo("<br>");
-    $cmd="SELECT u_name FROM student_detail where u_name like :rollno";
-    $templet=($dbo->conn)->prepare($cmd);
-    $templet->execute([":rollno"=>"____ %"]);
-    $rv=$templet->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($rv);
-      
-    
-}
-catch (PDOException $e) {
-
-}
-
+$rv=$dbo->getId("","");
+echo($rv);
 ?>

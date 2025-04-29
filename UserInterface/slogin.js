@@ -1,4 +1,4 @@
-$(document).ready(function(error){
+$(document).ready(function(){
     alert("Ready");
     $(document).on("click","#btnLogin",function(e){
         //alert("clicked");
@@ -33,6 +33,7 @@ $(document).ready(function(error){
                     // alert("successful");
                     if (result.status == "OK"){
                         $("#lblErrorMsg").text("VALID User and PW");
+                        document.location.replace("/project1/UserInterface/studentHome.php");
                     }else{
                         $("#lblErrorMsg").text("INVALID User and PW");
                     }
@@ -45,6 +46,4 @@ $(document).ready(function(error){
             $("#lblErrorMsg").text("INVALID INPUT");
         }
     });
-
-
 });
